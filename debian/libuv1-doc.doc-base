@@ -1,0 +1,9 @@
+Document: libuv1
+Title: libuv documentation
+Author: Contributors to libuv project
+Abstract: The libuv API documentation
+Section: Programming/C
+
+Format: HTML
+Index: /usr/share/doc/libuv1/html/index.html
+Files: /usr/share/doc/libuv1/html/*.html

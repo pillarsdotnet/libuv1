@@ -1,0 +1,9 @@
+add-support-for-loong64.patch
+sparc-skip-tcp_oob.diff
+#iovec_rw_fix.patch
+disable_ipv6_test.patch
+skip-multicast-test
+privacy-breach-generic.patch
+fix-thread-priority-test
+sh4-disable-io_uring.patch
+test-hurd.patch

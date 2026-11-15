@@ -1,0 +1,18 @@
+Description: remove iframe from html doc - avoid privacy breach
+Author: Jérémy Lal <kapouer@melix.org>
+Forwarded: not-needed
+--- a/docs/src/guide/basics.rst
++++ b/docs/src/guide/basics.rst
+@@ -73,11 +73,7 @@
+ libuv's event loop is explained in more detail in the `documentation
+ <https://docs.libuv.org/en/v1.x/design.html#the-i-o-loop>`_.
+ 
+-.. raw:: html
+-
+-    <iframe width="560" height="315"
+-    src="https://www.youtube-nocookie.com/embed/nGn60vDSxQ4" frameborder="0"
+-    allowfullscreen></iframe>
++.. _lxjs_2012: https://www.youtube-nocookie.com/embed/nGn60vDSxQ4
+ 
+ Hello World
+ -----------

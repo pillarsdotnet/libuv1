@@ -1,0 +1,27 @@
+Description: Fix thread priority test
+ Test should not assume to be run at priority 0.
+ .
+ See upstream bug for more details.
+Bug: https://github.com/libuv/libuv/issues/4382
+Bug-Debian: https://bugs.debian.org/1071194
+Author: info@bnoordhuis.nl
+Origin: https://github.com/libuv/libuv/issues/4382
+Applied-Upstream: not-needed
+--- a/test/test-thread-priority.c
++++ b/test/test-thread-priority.c
+@@ -88,9 +88,12 @@
+  * test set nice value for the calling thread with default schedule policy
+ */
+ #ifdef __linux__
+-  ASSERT_OK(uv_thread_setpriority(pthread_self(), UV_THREAD_PRIORITY_LOWEST));
+-  ASSERT_OK(uv_thread_getpriority(pthread_self(), &priority));
+-  ASSERT_EQ(priority, (0 - UV_THREAD_PRIORITY_LOWEST * 2));
++  int err = uv_thread_setpriority(pthread_self(), UV_THREAD_PRIORITY_LOWEST);
++  if (err != UV_EACCES) {
++    ASSERT_OK(err);
++    ASSERT_OK(uv_thread_getpriority(pthread_self(), &priority));
++    ASSERT_EQ(priority, (0 - UV_THREAD_PRIORITY_LOWEST * 2));
++  }
+ #endif
+ 
+   uv_sem_post(&sem);
