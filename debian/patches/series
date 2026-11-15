@@ -7,3 +7,5 @@ privacy-breach-generic.patch
 fix-thread-priority-test
 sh4-disable-io_uring.patch
 test-hurd.patch
+skip-sizeof-t64-test.patch
+5328.patch

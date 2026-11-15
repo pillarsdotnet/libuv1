@@ -4,7 +4,7 @@ Forwarded: no
 Author: Graham Inggs <ginggs@debian.org>
 --- a/.github/workflows/CI-unix.yml
 +++ b/.github/workflows/CI-unix.yml
-@@ -154,6 +154,7 @@
+@@ -156,6 +156,7 @@
            - {target: ppc64,               toolchain: gcc-powerpc64-linux-gnu,     cc: powerpc64-linux-gnu-gcc,    qemu: qemu-ppc64    }
            - {target: ppc64le,             toolchain: gcc-powerpc64le-linux-gnu,   cc: powerpc64le-linux-gnu-gcc,  qemu: qemu-ppc64le  }
            - {target: s390x,               toolchain: gcc-s390x-linux-gnu,         cc: s390x-linux-gnu-gcc,        qemu: qemu-s390x    }
@@ -14,7 +14,7 @@ Author: Graham Inggs <ginggs@debian.org>
            - {target: mipsel,              toolchain: gcc-mipsel-linux-gnu,        cc: mipsel-linux-gnu-gcc,       qemu: qemu-mipsel   }
 --- a/src/unix/linux.c
 +++ b/src/unix/linux.c
-@@ -85,6 +85,8 @@
+@@ -94,6 +94,8 @@
  #  define __NR_copy_file_range 285
  # elif defined(__riscv)
  #  define __NR_copy_file_range 285
@@ -23,7 +23,7 @@ Author: Graham Inggs <ginggs@debian.org>
  # endif
  #endif /* __NR_copy_file_range */
  
-@@ -103,6 +105,8 @@
+@@ -112,6 +114,8 @@
  #  define __NR_statx 379
  # elif defined(__riscv)
  #  define __NR_statx 291
@@ -32,7 +32,7 @@ Author: Graham Inggs <ginggs@debian.org>
  # endif
  #endif /* __NR_statx */
  
-@@ -121,6 +125,8 @@
+@@ -130,6 +134,8 @@
  #  define __NR_getrandom 349
  # elif defined(__riscv)
  #  define __NR_getrandom 278

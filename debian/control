@@ -4,12 +4,12 @@ Uploaders: Jérémy Lal <kapouer@debian.org>
 Section: libs
 Build-Depends: cmake,
                debhelper-compat (= 13),
-               dh-exec,
                netbase,
                pkgconf
 Build-Depends-Indep: dh-sequence-sphinxdoc <!nodoc>,
-                     sphinx <!nodoc>
-Standards-Version: 4.7.0
+                     sphinx <!nodoc>,
+                     python3-sphinx-copybutton <!nodoc>
+Standards-Version: 4.7.4
 Vcs-Browser: https://salsa.debian.org/debian/libuv1
 Vcs-Git: https://salsa.debian.org/debian/libuv1.git
 Homepage: https://github.com/libuv/libuv

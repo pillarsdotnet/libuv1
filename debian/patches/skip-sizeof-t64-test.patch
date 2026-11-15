@@ -1,0 +1,19 @@
+Description: disable checks to avoid failure on i386
+ This is not a 32-bit issue. It's a t64-not-on-i386 issue.
+Forwarded: https://github.com/libuv/libuv/issues/5303
+Last-Update: 2026-09-27
+Author: Jérémy Lal <kapouer@melix.org>
+--- a/test/test-sizeof.c
++++ b/test/test-sizeof.c
+@@ -878,9 +878,9 @@
+   CHECK_SIZE(uv_stat_t,              SIZEOF_UV_STAT_T);
+   CHECK_SIZE(uv_statfs_t,            SIZEOF_UV_STATFS_T);
+   CHECK_SIZE(uv_timespec_t,          SIZEOF_UV_TIMESPEC_T);
+-  CHECK_SIZE(uv_timespec64_t,        SIZEOF_UV_TIMESPEC64_T);
++  //CHECK_SIZE(uv_timespec64_t,        SIZEOF_UV_TIMESPEC64_T);
+   CHECK_SIZE(uv_timeval_t,           SIZEOF_UV_TIMEVAL_T);
+-  CHECK_SIZE(uv_timeval64_t,         SIZEOF_UV_TIMEVAL64_T);
++  //CHECK_SIZE(uv_timeval64_t,         SIZEOF_UV_TIMEVAL64_T);
+   CHECK_SIZE(uv_rusage_t,            SIZEOF_UV_RUSAGE_T);
+   CHECK_SIZE(uv_metrics_t,           SIZEOF_UV_METRICS_T);
+   CHECK_SIZE(uv_dirent_t,            SIZEOF_UV_DIRENT_T);

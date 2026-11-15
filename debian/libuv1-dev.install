@@ -1,4 +1,3 @@
-#!/usr/bin/dh-exec
 usr/include usr/
 usr/lib/*/libuv.a usr/lib/${DEB_HOST_MULTIARCH}/
 usr/lib/*/pkgconfig usr/lib/${DEB_HOST_MULTIARCH}/

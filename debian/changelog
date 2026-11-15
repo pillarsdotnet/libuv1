@@ -1,13 +1,18 @@
-libuv1 (1.52.1-4~ubuntu26.04~ppa1) resolute; urgency=medium
+libuv1 (1.53.0-1) unstable; urgency=medium
 
-  * No-change backport from Ubuntu 26.10 (stonking), for nodejs 24,
-    which needs libuv1 >= 1.52.
+  * New upstream version 1.53.0
+  * dh-exec not needed
+  * Update symbols
+  * Upstream patch, closes: #1149904.
+  * Standards-Version bump
+  * Build-Depends python3-sphinx-copybutton for doc.
+  * Use lrc, simplify a bit copyright
 
- -- Robert August Vincent II (Bob) <pillarsdotnet@gmail.com>  Fri, 02 Oct 2026 21:57:09 -0400
+ -- Jérémy Lal <kapouer@melix.org>  Wed, 14 Oct 2026 17:37:53 +0200
 
 libuv1 (1.52.1-4) unstable; urgency=medium
 
-  * Upload to unstable 
+  * Upload to unstable
 
  -- Jérémy Lal <kapouer@melix.org>  Tue, 26 May 2026 17:48:15 +0200
 
