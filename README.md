@@ -31,6 +31,22 @@ the point of having this repository at all.
 build fails to fetch, look at the pool directory above for the current `.dsc`
 before assuming anything else is wrong.
 
+## The build drops privileges
+
+`dpkg-buildpackage` runs as an unprivileged `builder` user, not as root.
+libuv's test suite refuses to run as root and says so, which failed the first
+build here:
+
+```
+The libuv test suite cannot be run as root.
+0% tests passed, 2 tests failed out of 2
+```
+
+Launchpad never hit this because its builders are unprivileged; a container is
+root by default, so the build has to drop privileges itself.
+`DEB_BUILD_OPTIONS=nocheck` would also make the build pass — by not running the
+thing that was complaining — which is why it is not what this does.
+
 ## Versioning
 
 `<upstream>~ubuntu<release>~ppaN`, for example
