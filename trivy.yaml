@@ -14,6 +14,27 @@ db:
 scan:
   scanners:
     - vuln
+  skip-files:
+    # libuv upstream's Sphinx pin list, which the post-build scan finds in the
+    # unpacked Debian source: 21 findings on 2026-11-21, one critical
+    # (GHSA-6q48-6c7w-9gw2, certifi 2025.1.31 bundling emSign roots) and ten
+    # high. Nothing in this build installs from it.
+    #
+    # debian/rules line 39 builds the documentation with the distribution's
+    # own sphinx-build:
+    #
+    #   sphinx-build -D html_theme=default docs/src/ .../libuv1-doc/.../html
+    #
+    # so the pins in docs/requirements.txt -- furo, Sphinx 7.0.1, certifi,
+    # idna, Pygments, requests -- are never resolved, never downloaded and
+    # never installed. Debian build-depends on python3-sphinx instead.
+    # libuv1-doc ships docs/code and the generated HTML; libuv1t64 and
+    # libuv1-dev ship C libraries. None of those 21 packages reaches a deb.
+    #
+    # Raising them would mean patching a pin list upstream Debian already
+    # ignores. Drop this entry if the build ever starts installing from that
+    # file -- then the findings would be real.
+    - "**/docs/requirements.txt"
 
 # Any finding fails the run. No severity floor, on purpose: the standing rule
 # for anything published out of this tree is zero findings, low ones included.
