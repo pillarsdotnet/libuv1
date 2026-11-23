@@ -10,5 +10,5 @@ Last-Update: 2026-05-26
                      src/unix/hurd.c
 +test_run_tests_LDFLAGS += -lutil
  endif
- 
+
  if LINUX

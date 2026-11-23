@@ -22,7 +22,7 @@ Author: Graham Inggs <ginggs@debian.org>
 +#  define __NR_copy_file_range 285
  # endif
  #endif /* __NR_copy_file_range */
- 
+
 @@ -112,6 +114,8 @@
  #  define __NR_statx 379
  # elif defined(__riscv)
@@ -31,7 +31,7 @@ Author: Graham Inggs <ginggs@debian.org>
 +#  define __NR_statx 291
  # endif
  #endif /* __NR_statx */
- 
+
 @@ -130,6 +134,8 @@
  #  define __NR_getrandom 349
  # elif defined(__riscv)
@@ -40,4 +40,3 @@ Author: Graham Inggs <ginggs@debian.org>
 +#  define __NR_getrandom 278
  # endif
  #endif /* __NR_getrandom */
- 

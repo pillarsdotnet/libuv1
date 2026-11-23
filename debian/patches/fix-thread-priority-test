@@ -23,5 +23,5 @@ Applied-Upstream: not-needed
 +    ASSERT_EQ(priority, (0 - UV_THREAD_PRIORITY_LOWEST * 2));
 +  }
  #endif
- 
+
    uv_sem_post(&sem);

@@ -28,7 +28,7 @@ index ac00778cfc5..1727253b844 100644
 @@ -432,7 +432,16 @@
  # define UV__ENOTTY (-4029)
  #endif
- 
+
 -#if defined(EFTYPE) && !defined(_WIN32)
 +/* Le sigh. Added in Linux 7.2. */
 +#if defined(__linux__) && defined(__hppa__)

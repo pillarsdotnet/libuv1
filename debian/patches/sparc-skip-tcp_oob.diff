@@ -7,7 +7,7 @@ Author: Luca BRUNO <lucab@debian.org>
 @@ -114,6 +114,12 @@
    struct sockaddr_in addr;
    uv_loop_t* loop;
- 
+
 +#if defined(__sparc__) && defined(__linux__)
 +  fprintf(stderr, "Skipping test on Linux-sparc due to instability.\n");
 +  fflush(stderr);
@@ -16,4 +16,3 @@ Author: Luca BRUNO <lucab@debian.org>
 +
    ASSERT_OK(uv_ip4_addr("127.0.0.1", TEST_PORT, &addr));
    loop = uv_default_loop();
- 
